@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>50th Anniversary of Southeast Asian Refugees</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Join the 50th Anniversary of Southeast Asian Refugees for a cultural celebration with performances, food, and history.">
+    <meta name="keywords" content="Southeast Asian, Refugees, Cultural Festival, Event">
+</head>
+<body>
+    <!-- Timer Section -->
+    <div id="timer" class="container">
+        <p>Countdown to July 4th, 2025: <span id="countdown"></span></p>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>50th Anniversary of Southeast Asian Refugees</h1>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#schedule">Event Schedule</a></li>
+                    <li><a href="#apply">Apply</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="Meet the Performers.html">Meet the Peformers</a>
+                        <div class="dropdown-content">
+                            <a href="performers.html">Performers</a>
+                            <a href="vendors.html">Vendors</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section id="hero">
+        <video autoplay muted loop id="heroVideo">
+            <source src="videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <h2>Celebrate 50 Years of Resilience and Culture</h2>
+            <p>Join us for a cultural festival celebrating the Southeast Asian community and its journey.</p>
+            <a href="#about" class="btn" aria-label="Learn more about the event">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About the Event</h2>
+            <p>This event marks the 50th anniversary of Southeast Asian refugees arriving in the US. We celebrate resilience, culture, and community with performances, food, and history.</p>
+        </div>
+    </section>
+
+    <!-- Event Schedule Section -->
+    <section id="schedule">
+        <div class="container">
+            <h2>Event Schedule</h2>
+            <ul>
+                <li>10:00 AM: Opening Ceremony</li>
+                <li>11:30 AM: Cultural Fashion Show</li>
+                <li>1:00 PM: Traditional Dance Performances</li>
+                <li>3:00 PM: Food and Craft Marketplace</li>
+                <li>6:00 PM: Closing Ceremony</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Vendor & Performer Application Section -->
+    <section id="apply">
+        <div class="container">
+            <h2>Apply to Participate</h2>
+            <p>If you're a vendor or performer, join us by applying below:</p>
+            <a href="vendor.html" class="btn" aria-label="Apply as a vendor">Vendor Application</a>
+            <a href="performer.html" class="btn" aria-label="Apply as a performer">Performer Application</a>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <h4>Where is the event located?</h4>
+            <p>The event will be held at [Event Location]. Please check the map and parking info in the Contact section.</p>
+
+            <h4>How can I apply as a vendor or performer?</h4>
+            <p>Click on the "Apply" section to submit your application as a vendor or performer. Make sure to submit before the deadline.</p>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>For more information, reach out to us at <a href="mailto:info@50thSEAnniversary.org">info@50thSEAnniversary.org</a>.</p>
+            <p>Follow us on social media!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add sticky navigation on scroll
+        window.onscroll = function() {stickyNav()};
+
+        var header = document.querySelector("header");
+        var sticky = header.offsetTop;
+
+        function stickyNav() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        // Countdown Timer for July 4th, 2025
+        function updateCountdown() {
+            const eventDate = new Date("July 4, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
